@@ -561,7 +561,7 @@ globalkeys =
         {modkey},
         "#27",
         function()
-            awful.util.spawn_with_shell("rofi -show drun")
+            awful.util.spawn_with_shell("rofi -no-lazy-grab -show drun -modi run,drun,window -theme ~/.config/rofi/config.rasi")
         end,
         {description = "run rofi", group = "client"}
     ),

@@ -11,3 +11,6 @@ pacman -S awesome rofi pavucontrol gnome-screenshot thunar thunar-volman thunar-
 
 # other desktop apps
 pacman -S firefox audacious filezilla transmission-qt xarchiver
+
+# other things, like video codecs
+pacman -S ffmpeg ffmpeg-compat-58
