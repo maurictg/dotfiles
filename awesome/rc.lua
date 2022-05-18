@@ -3,6 +3,8 @@
 pcall(require, "luarocks.loader")
 
 -- CUSTOM
+-- git clone https://github.com/streetturtle/awesome-wm-widgets.git
+
 -- Pacman dependencies:
 -- light, arc-icon-theme, rofi, gnome-terminal, pulseaudio-alsa, xfce4-screenshooter, thunar (amixer, pacmd)
 -- sudo chgrp video /sys/class/backlight/*/brightness
