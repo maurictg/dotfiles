@@ -10,5 +10,9 @@ echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nvidia-nouveau.con
 # arduino: pacman -S arduino
 
 # xorg permissions
-doas pacman -S xorg-xhost
+pacman -S xorg-xhost
 xhost si:localuser:root
+
+# tools
+pacman -S sqlitebrowser
+pacman -S nm-connection-editor
