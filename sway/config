@@ -11,12 +11,15 @@
 # wofi
 # pulseaudio
 # waybar
+# xorg-xwayland
 # 
 # SETUP
 # chgrp video /sys/class/backlight/*/brightness
 # chmod 664 /sys/class/backlight/*/brightness
 # usermod -a -G video $USER
-# 
+#
+# POST_INSTALL
+# For rider: add _JAVA_AWT_WM_NONREPARENTING=1 to /etc/profile 
 
 ### Variables
 #
@@ -39,7 +42,7 @@ set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu wofi
+set $menu wofi | swaymsg exec --
 
 ### Output configuration
 #
