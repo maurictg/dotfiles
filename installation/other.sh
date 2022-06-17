@@ -16,3 +16,9 @@ xhost si:localuser:root
 # tools
 pacman -S sqlitebrowser
 pacman -S nm-connection-editor
+
+# Net tools (nslookup, netstat --inet -ap)
+pacman -S net-tools
+
+# for NetworkManager
+pacman -S nm-connection-editor

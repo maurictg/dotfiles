@@ -6,14 +6,21 @@ pcall(require, "luarocks.loader")
 -- git clone https://github.com/streetturtle/awesome-wm-widgets.git
 
 -- Pacman dependencies:
--- light, arc-icon-theme, rofi, gnome-terminal, pulseaudio-alsa, xfce4-screenshooter, thunar (amixer, pacmd)
+-- light, arc-icon-theme, rofi, gnome-terminal, pulseaudio-alsa, xfce4-screenshooter, thunar (amixer, pacmd), i3lock
 -- sudo chgrp video /sys/class/backlight/*/brightness
 -- sudo chmod 664 /sys/class/backlight/*/brightness
 -- sudo usermod -a -G video $USER
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 -- END
+
+--VARIABLES
+local lock_command = "i3lock -c 101e2b"
+--END
 
 -- Standard awesome library
 local gears = require("gears")
@@ -153,6 +160,20 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+-- Create calendar addon widget
+local cw = calendar_widget({
+    theme = 'nord',
+    start_sunday = true,
+    placement = 'top_right',
+    previous_month_button = 1,
+    next_month_button = 3
+})
+
+mytextclock:connect_signal("button::press",
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons =
@@ -327,15 +348,20 @@ awful.screen.connect_for_each_screen(
             },
             s.mytasklist, -- Middle widget
             {
-                -- Right widgets
+                -- Right widgets 
+                -- TODO declare plugins here
                 layout = wibox.layout.fixed.horizontal,
                 mykeyboardlayout,
                 wibox.widget.systray(),
-                mytextclock,
                 s.mylayoutbox,
+                net_speed_widget(),
                 brightness_widget({program = "light", step = 5}),
+                mytextclock,
                 battery_widget({show_current_level = true, font = "Play 10"}),
-                volume_widget()
+                volume_widget(),
+                logout_menu_widget({
+                    onlock = function() awful.spawn.with_shell(lock_command) end
+                })
             }
         }
     end
@@ -673,6 +699,17 @@ globalkeys =
         end,
         {
             description = "Set keyboard to english",
+            group = "client"
+        }
+    ),
+    awful.key(
+        { modkey },
+        "l",
+        function()
+            awful.spawn.with_shell(lock_command)
+        end,
+        {
+            description = "Lock screen",
             group = "client"
         }
     )
