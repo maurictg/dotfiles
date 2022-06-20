@@ -101,7 +101,8 @@ input type:touchpad {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
+    # I dislike the Shift, so removed it
 
     # Start your launcher
     bindsym $mod+r exec $menu 

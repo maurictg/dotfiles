@@ -3,10 +3,10 @@
         "name": "topbar",
         "layer": "top",
         "position": "top",
-        "height": 30,
+        "height": 31,
         "modules-left": ["sway/workspaces", "sway/mode", "cpu", "memory", "disk", "temperature"],
         "modules-center": ["clock", "idle_inhibitor", "wlr/taskbar"],
-        "modules-right": ["backlight", "pulseaudio", "battery#bat1"],
+        "modules-right": ["backlight", "pulseaudio", "battery"],
         "sway/mode": {
             "format": "<span style=\"italic\">{}</span>"
         },
@@ -48,7 +48,7 @@
             "format": "{icon} {percent}%",
             "format-icons": ["", ""]
         },
-        "battery#bat1": {
+        "battery": {
             "bat": "BAT0",
             "adapter": "AC",
             "interval": 10,
