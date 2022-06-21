@@ -9,11 +9,13 @@
 # ttf-font-awesome
 # light
 # wofi
-# pulseaudio
+# pipewire pipewire-pulse pipewire-alsa pipewire-jack pipewire-media-session
 # waybar
 # xorg-xwayland
-# network-manager-applet
 # materia-gtk-theme
+# grim
+# slurp
+# wl-clipboard
 # 
 # SETUP
 # chgrp video /sys/class/backlight/*/brightness
@@ -24,7 +26,7 @@
 # For rider: add 'export _JAVA_AWT_WM_NONREPARENTING=1' to /etc/profile 
 # For material dark: add 'export GTK_THEME=Materia:dark'
 # For firefox add 'export MOZ_ENABLE_WAYLAND=1'
-#
+# And XDG_SESSION_TYPE=wayland
 
 ### Variables
 #
@@ -248,9 +250,20 @@ bindsym $mod+Shift+r mode "resize"
     bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym $mod+Alt+l exec swaylock -c 1c1d2b
 
+    # Screenshot: pixel HEX to clipboard
+    bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+    bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
+    bindsym Print exec grim - | wl-copy
+
 # Settings for specific programs
 for_window [instance="jetbrains-rider"] floating enable
 for_window [app_id="pavucontrol"] floating enable
+
+# Start services. "exec" from sway runs in parallel, if you don't want that run it via a script
+exec pipewire
+exec pipewire-pulse
+exec pipewire-media-session
+exec --no-startup-id /usr/lib/xdg-desktop-portal -r
 
 #
 # Status Bar:
