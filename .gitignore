@@ -12,3 +12,6 @@
 !/waybar/
 !/wofi/
 !/swaylock/
+!/xfce4/
+
+xfce4/xfconf

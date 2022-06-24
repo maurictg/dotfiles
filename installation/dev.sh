@@ -1,5 +1,5 @@
 #!/bin/sh
-# REQUIRE: pacman (yay)
+# REQUIRE: pacman
 echo "=== Install development tools ==="
 
 pacman -S dotnet-sdk dotnet-runtime dotnet-host aspnet-runtime rust go jdk-openjdk
@@ -10,4 +10,4 @@ printf "Enter java version shown above: "
 read javaversion
 archlinux-java set $javaversion
 
-yay -S visual-studio-code-bin
+# visual-studio-code-bin

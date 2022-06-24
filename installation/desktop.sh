@@ -21,7 +21,7 @@ echo "=== Install tools ==="
 
 # Install other desktop tools
 pacman -S nm-connection-editor pavucontrol thunar thunar-volman thunar-archive-plugin
-yay -S wdisplays
+# TODO: install wdisplays via yay
 
 echo "=== Post-install GUI ==="
 

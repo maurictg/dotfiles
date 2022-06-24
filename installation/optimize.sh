@@ -2,7 +2,7 @@
 echo "=== Running optimalization commands ==="
 
 # Allow more threads in MAKE
-echo 'MAKEFLAGS=\"-j\$(nproc)\"' >> /etc/makepkg.conf
+echo 'MAKEFLAGS="-j\$(nproc)"' >> /etc/makepkg.conf
 
 # Disable GPU
 echo "blacklist nouveau" > /etc/modprobe.d/blacklist-nvidia-nouveau.conf
