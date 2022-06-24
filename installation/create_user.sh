@@ -20,6 +20,7 @@ fi
 alias sudo="doas"
 alias la="ls -a"
 alias todo="grep -nirH 'todo' ./"
+alias vim="nvim"
 
 ex ()
 {

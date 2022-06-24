@@ -37,4 +37,4 @@ echo "export MOZ_ENABLE_WAYLAND=1" >> /etc/profile
 echo "export XDG_SESSION_TYPE=wayland" >> /etc/profile
 
 # Set wallpaper
-cp /home/$USER/.config/maurict/wallpaper.jpg /usr/share/backgrounds/wallpaper.jpg
+cp /home/$USER/.config/wallpaper.jpg /usr/share/backgrounds/wallpaper.jpg
