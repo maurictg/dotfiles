@@ -1,4 +1,7 @@
 #!/bin/bash
+# REQUIRE: doas, git
+echo "=== Setting up PacMan and yay ==="
+
 pacman -Syyu
 pacman -S artix-archlinux-support
 
@@ -17,7 +20,7 @@ Include = /etc/pacman.d/mirrorlist-arch
 EOF
 
 pacman -Syyu
-pacman -S doas fakeroot
+pacman -S base-devel
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git

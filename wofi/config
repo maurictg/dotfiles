@@ -1,3 +1,5 @@
+# For some reason, wofi term does not work
+# Fix: ln -s /usr/bin/foot .local/bin/xterm
 mode=drun
 term=foot
 insensitive=true

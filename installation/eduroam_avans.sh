@@ -1,3 +1,6 @@
+#!/bin/sh
+echo "=== Setup eduraom Avans wifi ==="
+
 printf "Enter username: "
 read eduun
 
