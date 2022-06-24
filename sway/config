@@ -268,6 +268,10 @@ bindsym $mod+Shift+r mode "resize"
     bindsym $mod+Shift+i input * xkb_layout "il"
     bindsym $mod+Shift+Escape input * xkb_layout "us"
 
+    # Applications
+    bindsym $mod+Ctrl+e exec thunar
+    bindsym $mod+Ctrl+f exec firefox
+
 # Settings for specific programs
 for_window [instance="jetbrains-rider"] floating enable
 for_window [app_id="pavucontrol"] floating enable
