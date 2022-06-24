@@ -38,10 +38,10 @@ echo "=== Welcome @ maurict-Artix installer script! ==="
 ask "Do you want to setup doas and pacman (required?)"
 if [ $RES = true ]
 then
-    source ./doas.sh
     source ./pacman.sh
+    source ./doas.sh
 else
-    exit 0
+    echo "ow"
 fi
 
 ask "Do you want to create a new user and setup user environment"

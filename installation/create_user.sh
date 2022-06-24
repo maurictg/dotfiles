@@ -14,7 +14,8 @@ usermod -aG uucp $username # serial ports
 
 cat <<\EOF > /home/$username/.bashrc
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  exec sway
+  echo "starting sway..."
+  #exec sway
 fi
 
 alias sudo="doas"
@@ -53,8 +54,4 @@ EOF
 mkdir /home/$username/Programs
 mkdir /home/$username/Scripts
 
-# Login as user to set the $USER variable
-su $username
-
-# Gain root access again
-su
+export USER=$username
