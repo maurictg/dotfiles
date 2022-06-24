@@ -1,3 +1,6 @@
+#!/bin/sh
+echo "=== Replacing wpa_supplicant with NetworkManager + iwd ==="
+
 pacman -S iwd-openrc networkmanager-openrc
 
 cat <<\EOF > /etc/NetworkManager/NetworkManager.conf

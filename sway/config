@@ -1,5 +1,7 @@
 # Sway config @maurictg
 #
+# See man 5 sway
+#
 # DEPENDENCIES
 # nm-connection-editor
 # foot
@@ -9,18 +11,22 @@
 # ttf-font-awesome
 # light
 # wofi
-# pipewire pipewire-pulse pipewire-alsa pipewire-jack pipewire-media-session
+# pipewire pipewire-pulse pipewire-alsa pipewire-jack pipewire-media-session (of wireplumber)
 # waybar
 # xorg-xwayland
 # materia-gtk-theme
 # grim
 # slurp
 # wl-clipboard
+# wdisplays
 # 
 # SETUP
 # chgrp video /sys/class/backlight/*/brightness
 # chmod 664 /sys/class/backlight/*/brightness
 # usermod -a -G video $USER
+#
+# REMOTE
+# On remote servers, install ncurses-terminfo to support foot
 #
 # POST_INSTALL
 # For rider: add 'export _JAVA_AWT_WM_NONREPARENTING=1' to /etc/profile 
@@ -43,7 +49,7 @@ set $right l
 set $term foot
 
 # Wallpaper
-set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
+set $wallpaper /usr/share/backgrounds/wallpaper.jpg
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -255,6 +261,13 @@ bindsym $mod+Shift+r mode "resize"
     bindsym $mod+Shift+s exec grim -g "$(slurp -d)" - | wl-copy
     bindsym Print exec grim - | wl-copy
 
+    # Screens and presenting
+    bindsym $mod+p exec wdisplays
+
+    # Multilingual
+    bindsym $mod+Shift+i input * xkb_layout "il"
+    bindsym $mod+Shift+Escape input * xkb_layout "us"
+
 # Settings for specific programs
 for_window [instance="jetbrains-rider"] floating enable
 for_window [app_id="pavucontrol"] floating enable
@@ -262,7 +275,8 @@ for_window [app_id="pavucontrol"] floating enable
 # Start services. "exec" from sway runs in parallel, if you don't want that run it via a script
 exec pipewire
 exec pipewire-pulse
-exec pipewire-media-session
+# pipewire-media-session of wireplumber
+exec wireplumber
 exec --no-startup-id /usr/lib/xdg-desktop-portal -r
 
 #
@@ -272,5 +286,11 @@ exec --no-startup-id /usr/lib/xdg-desktop-portal -r
 bar {
     swaybar_command waybar
 }
+
+#client.<class>         <border>  <background> <text>   <indicator>   <child_border> 
+
+#client.focused          "#2c2c2c" "#dddfe2"  "#000000"   "#666666"     "#2c2c2c"
+#client.focused_inactive "#23242a" "#666666"  "#666666"   "#000000"     "#999999"
+#client.unfocused        "#666666" "#fff5e5"  "#666666"   "#000000"     "#999999"
 
 include /etc/sway/config.d/*

@@ -1,4 +1,6 @@
 #!/bin/sh
+echo "=== Creating user ==="
+
 printf "Enter a username: "
 read username
 
@@ -10,15 +12,14 @@ usermod -aG video $username
 usermod -aG wheel $username
 usermod -aG uucp $username # serial ports
 
-echo "exec awesome" > /home/$username/.xinitrc
-
 cat <<\EOF > /home/$username/.bashrc
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-startx
+  exec sway
 fi
 
 alias sudo="doas"
 alias la="ls -a"
+alias todo="grep -nirH 'todo' ./"
 
 ex ()
 {
@@ -41,7 +42,18 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+cleanup() {
+	pacman -Rs $(pacman -Qdtq)
+	yay -Scc
+}
 EOF
 
 mkdir /home/$username/Programs
 mkdir /home/$username/Scripts
+
+# Login as user to set the $USER variable
+su $username
+
+# Gain root access again
+su

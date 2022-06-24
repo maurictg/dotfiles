@@ -1,1 +1,0 @@
-Microsoft Threat Modeling Tool : owasp-threat-dragon github or aur
