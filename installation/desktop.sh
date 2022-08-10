@@ -20,7 +20,7 @@ pacman -S pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber light 
 echo "=== Install tools ==="
 
 # Install other desktop tools
-pacman -S nm-connection-editor pavucontrol thunar thunar-volman thunar-archive-plugin
+pacman -S nm-connection-editor pavucontrol thunar thunar-volman thunar-archive-plugin polkit-gnome
 # TODO: install wdisplays via yay
 
 echo "=== Post-install GUI ==="

@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "=== Setup eduraom Avans wifi ==="
 
-printf "Enter username: "
+printf "Enter email (l.xxxxxxx(n)@student.avans.nl): "
 read eduun
 
 printf "Enter password: "

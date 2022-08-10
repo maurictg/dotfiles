@@ -19,7 +19,11 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 fi
 
 alias sudo="doas"
-alias la="ls -a"
+alias ls='ls --color=auto'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+alias la="ls -color=autho -a"
 alias todo="grep -nirH 'todo' ./"
 alias vim="nvim"
 

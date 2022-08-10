@@ -2,29 +2,6 @@
 #
 # See man 5 sway
 #
-# DEPENDENCIES
-# nm-connection-editor
-# foot
-# sway
-# swaybg
-# swaylock
-# ttf-font-awesome
-# light
-# wofi
-# pipewire pipewire-pulse pipewire-alsa pipewire-jack pipewire-media-session (of wireplumber)
-# waybar
-# xorg-xwayland
-# materia-gtk-theme
-# grim
-# slurp
-# wl-clipboard
-# wdisplays
-# 
-# SETUP
-# chgrp video /sys/class/backlight/*/brightness
-# chmod 664 /sys/class/backlight/*/brightness
-# usermod -a -G video $USER
-#
 # REMOTE
 # On remote servers, install ncurses-terminfo to support foot
 #
@@ -33,6 +10,8 @@
 # For material dark: add 'export GTK_THEME=Materia:dark'
 # For firefox add 'export MOZ_ENABLE_WAYLAND=1'
 # And XDG_SESSION_TYPE=wayland
+
+xwayland enable
 
 ### Variables
 #
@@ -282,6 +261,8 @@ exec pipewire-pulse
 # pipewire-media-session of wireplumber
 exec wireplumber
 exec --no-startup-id /usr/lib/xdg-desktop-portal -r
+# auth client
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 #
 # Status Bar:
