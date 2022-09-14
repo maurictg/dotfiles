@@ -54,3 +54,6 @@ cd $FROM
 
 # set doas to yay i.o. sudo
 yay --sudo doas --sudoflags -- --save
+
+
+# if problems with keys: https://wiki.archlinux.org/title/Pacman/Package_signing#Resetting_all_the_keys

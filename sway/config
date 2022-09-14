@@ -252,7 +252,7 @@ bindsym $mod+Shift+r mode "resize"
     bindsym $mod+Ctrl+f exec firefox
 
 # Settings for specific programs
-for_window [instance="jetbrains-rider"] floating enable
+# for_window [instance="jetbrains-rider"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 
 # Start services. "exec" from sway runs in parallel, if you don't want that run it via a script

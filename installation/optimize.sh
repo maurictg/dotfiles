@@ -19,7 +19,6 @@ cat << EOF > /etc/init.d/powertop
 name="powertop auto tune"
 description=""
 start() { powertop --auto-tune; }
-stop() {}
 EOF
 
 chmod +x /etc/init.d/powertop

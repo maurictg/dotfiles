@@ -9,3 +9,6 @@ pacman -S net-tools
 
 # Archiving tools (zip, rar, tar, 7z)
 pacman -S p7zip zip unzip unrar tar
+
+# Android tools
+# pacman -S android-tools
