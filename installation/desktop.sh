@@ -10,7 +10,7 @@ echo "=== Install graphical environment ==="
 pacman -S wayland xorg-xwayland wlroots wl-clipboard
 
 # Install sway, dependencies and tools
-pacman -S sway swaybg swaylock waybar wofi foot ttf-font-awesome noto-fonts ttf-hack materia-gtk-theme grim slurp
+pacman -S sway swaybg swaylock waybar wofi foot ttf-font-awesome noto-fonts ttf-hack materia-gtk-theme grim slurp imagemagick
 
 echo "=== Install AV backends ==="
 

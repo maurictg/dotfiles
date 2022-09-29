@@ -5,12 +5,12 @@ font-size=40
 indicator-radius=152
 indicator-thickness=55
 inside-color=ffffff00
-key-hl-color=3daee9
-ring-color=1d99f388
+key-hl-color=1dd6f3ff
+ring-color=1d99f3ff
 line-uses-ring
-separator-color=1d99f322
+separator-color=1d99f3ff
 text-color=ffffff
 text-clear-color=ffffff
 text-caps-lock-color=ffffff
 ignore-empty-password
-background=000000
+color=1c1d2bbb

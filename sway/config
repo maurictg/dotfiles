@@ -81,6 +81,22 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+
+#client.<class>         <border>  <background> <text>   <indicator>   <child_border> 
+
+#client.focused          "#2c2c2c" "#dddfe2"  "#000000"   "#666666"     "#2c2c2c"
+#client.focused_inactive "#23242a" "#666666"  "#666666"   "#000000"     "#999999"
+#client.unfocused        "#666666" "#fff5e5"  "#666666"   "#000000"     "#999999"
+
+# Property Name         Border    BG        Text      Indicator Child
+client.focused          #33333300 #003b7aFF #ffffffFF #196693FF #000000FF
+client.focused_inactive #00000000 #000000FF #ffffffFF #ff0000FF #000000FF
+client.unfocused        #00000000 #000000FF #ffffffFF #ff0000FF #000000FF
+client.urgent           #00000000 #000000FF #ffffffFF #ff0000FF #000000FF
+client.placeholder      #00000000 #000000FF #ffffffFF #ff0000FF #000000FF
+client.background       #000000FF
+
+
 ### Key bindings
 #
 # Basics:
@@ -233,7 +249,7 @@ bindsym $mod+Shift+r mode "resize"
     bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2% 
     bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
     bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym $mod+Alt+l exec swaylock -c 1c1d2b
+    bindsym $mod+Alt+l exec swaylock -C /home/$USER/.config/swaylock/config
 
     # Screenshot: pixel HEX to clipboard
     bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
@@ -250,6 +266,10 @@ bindsym $mod+Shift+r mode "resize"
     # Applications
     bindsym $mod+Ctrl+e exec thunar
     bindsym $mod+Ctrl+f exec firefox
+
+    # Sway
+    bindsym $mod+Ctrl+Right workspace next
+    bindsym $mod+Ctrl+Left workspace prev
 
 # Settings for specific programs
 # for_window [instance="jetbrains-rider"] floating enable
@@ -271,11 +291,5 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 bar {
     swaybar_command waybar
 }
-
-#client.<class>         <border>  <background> <text>   <indicator>   <child_border> 
-
-#client.focused          "#2c2c2c" "#dddfe2"  "#000000"   "#666666"     "#2c2c2c"
-#client.focused_inactive "#23242a" "#666666"  "#666666"   "#000000"     "#999999"
-#client.unfocused        "#666666" "#fff5e5"  "#666666"   "#000000"     "#999999"
 
 include /etc/sway/config.d/*
