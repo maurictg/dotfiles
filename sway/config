@@ -283,6 +283,9 @@ exec wireplumber
 exec --no-startup-id /usr/lib/xdg-desktop-portal -r
 # auth client
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# screen sharing
+exec /usr/lib/xdg-desktop-portal -r
+exec /usr/lib/xdg-desktop-portal-wlr
 
 #
 # Status Bar:
